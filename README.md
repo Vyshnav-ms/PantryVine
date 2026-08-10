@@ -63,19 +63,20 @@ CognoDB Cloud Graph Database Engine
 
 ```mermaid
 graph TD
-    Recipe["(:Recipe)<br/>id, name, prepTime, cookTime, difficulty, image"]
-    Ingredient["(:Ingredient)<br/>id, name, category"]
-    Cuisine["(:Cuisine)<br/>id, name, description"]
-    Diet["(:Diet)<br/>id, name, description"]
-    Category["(:Category)<br/>id, name"]
+    Recipe["Recipe"]
+    Ingredient["Ingredient"]
+    Cuisine["Cuisine"]
+    Diet["Diet"]
+    Category["Category"]
+    RelatedRecipe["Related Recipe"]
 
-    Recipe -->|CONTAINS {quantity, unit}| Ingredient
-    Ingredient -->|SUBSTITUTES {ratio, note}| Ingredient
+    Recipe -->|CONTAINS| Ingredient
+    Ingredient -->|SUBSTITUTES| Ingredient
     Ingredient -->|PAIRS_WITH| Ingredient
     Recipe -->|BELONGS_TO| Cuisine
     Recipe -->|SUITABLE_FOR| Diet
     Recipe -->|HAS_CATEGORY| Category
-    Recipe -->|SIMILAR_TO| Recipe
+    Recipe -->|SIMILAR_TO| RelatedRecipe
 ```
 
 ### Node Schema:
