@@ -1,23 +1,33 @@
-# KitchenGraph 🥑🕸️
+# PantryVine 🥑🌿
 
 > *"Discover what you can cook, one connection at a time."*
 
-KitchenGraph is a production-grade, graph-powered recipe and ingredient discovery web application backed by **CognoDB** using openCypher over the Bolt protocol via the official `neo4j-driver`.
+🌐 **Live Application**: [https://pantry-vine.vercel.app/](https://pantry-vine.vercel.app/)
+
+PantryVine is a production-grade, graph-powered recipe and ingredient discovery web application backed by **CognoDB** using openCypher over the Bolt protocol via the official `neo4j-driver`.
 
 Built for the Wexa AI *"Build a Graph Database Application"* take-home assignment.
 
 ---
 
+## 📸 Application Showcase
+
+| Editorial Homepage Cover | Cookbook Recipe View |
+| :---: | :---: |
+| ![PantryVine Homepage](./public/screenshots/homepage-preview.png) | ![PantryVine Recipe View](./public/screenshots/recipe-preview.png) |
+
+---
+
 ## 🌟 Overview & Core Concept
 
-Traditional recipe apps treat data as isolated flat tables. FoodGraph models culinary relationships as a rich graph network where recipes, ingredients, substitutions, cuisines, and diets are interconnected nodes.
+Traditional recipe apps treat data as isolated flat tables. PantryVine models culinary relationships as a rich graph network where recipes, ingredients, substitutions, cuisines, and diets are interconnected nodes.
 
 ### Key Features:
 1. **"What's in your kitchen?" Ingredient Discovery**: Select available ingredients; CognoDB traverses the graph to find matching recipes, ranks them by match percentage, and identifies missing ingredients.
 2. **Smart Ingredient Substitutions**: Explore culinary replacements (e.g. `Butter` → `Ghee` / `Olive Oil`) with substitution ratios and culinary notes.
 3. **Multi-Hop Traversal**: Traverse `(:Ingredient) → (:Recipe) → (:Cuisine)` and `(:Diet)` to explore regional traditions and dietary suitability.
 4. **Similar Recipe Discovery**: Discover related recipes naturally through shared ingredient graph overlap (`(r1:Recipe)-[:CONTAINS]->(i:Ingredient)<-[:CONTAINS]-(r2:Recipe)`).
-5. **Interactive 2D Graph Explorer**: Visualise graph topology with node dragging, zoom/pan controls, type filtering, and an openCypher inspection drawer.
+5. **My Kitchen Saved Recipes**: Persist bookmarked recipes dynamically across browser sessions with real-time UI synchronization.
 6. **Graceful Fallback & Zero Downtime**: Seamlessly falls back to an in-memory graph mirror if database credentials are not yet configured.
 
 ---
